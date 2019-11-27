@@ -1,9 +1,35 @@
+
 <ion-header>
   <ion-toolbar>
-    <ion-title>To Do List</ion-title>
+
+    <ion-title>My Tasks List</ion-title>
+    <ion-icon name="home" slot="end"></ion-icon>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
+
+<ion-content>
+  <form [formGroup]="formGroupTask">
+    <ion-list>
+
+      <ion-list-header>Add New Task</ion-list-header>
+
+      <ion-item>
+        <ion-input name="inputTypeTask" placeholder="<please type your task here>"            type="text" formControlName="typedTask"     ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input name="inputTypeTask" placeholder="please type a due date for the task"   type="text" formControlName="typedDueDate"  ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input name="inputTypeTask" placeholder="please type a category of your task"   type="text" formControlName="typedCat"      ></ion-input>
+      </ion-item>
+
+      <ion-button expand="full" id="ouzo" (click)="buttonAddOnClick()"    [disabled]="!formGroupTask.valid" >ADD        </ion-button>
+
+      <ion-button expand="full" id="ouzo" (click)="buttonAlertOnClick()"                                    >Show Alert </ion-button>
+
+    </ion-list>
+  </form>
 </ion-content>
