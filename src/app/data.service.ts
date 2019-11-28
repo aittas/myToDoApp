@@ -15,12 +15,7 @@ import  { BehaviorSubject }   from 'rxjs';
 export class DataService 
 {
   listAllTasks:       Array<Task> = new Array();
-  listTasksDone:      Array<Task> = new Array();
-  listTasksNotDone:   Array<Task> = new Array();
-
   listAll$      = new BehaviorSubject<Task[]>(this.listAllTasks);
-  listDone$     = new BehaviorSubject<Task[]>(this.listTasksDone);
-  listNotDone$  = new BehaviorSubject<Task[]>(this.listTasksNotDone);
 
 
 
@@ -38,32 +33,6 @@ export class DataService
       this.sortLists();
       
       this.listAll$.next( this.listAllTasks );
-    });
-
-    // to load only tasks are done
-    this.loadTasks().then( (data:Array<Task>) => 
-    {
-      data.forEach( (item) =>
-      {
-        this.listTasksDone.push(item);
-      });
-
-      this.sortLists();
-      
-      this.listDone$.next( this.listTasksDone );
-    });
-
-    // to load only tasks are not done
-    this.loadTasks().then( (data:Array<Task>) => 
-    {
-      data.forEach( (item) =>
-      {
-        this.listTasksNotDone.push(item);
-      });
-
-      this.sortLists();
-      
-      this.listNotDone$.next( this.listTasksNotDone );
     });
 
   }  
@@ -96,57 +65,23 @@ export class DataService
 
 
 
-  // to add tasks are done to corresponding list
-  addToListTasksDone( task: Task )
+  //delete
+  deleteFromAllTasks(id:string)
   {
-    this.listTasksDone.push( task );
-    this.listDone$.next( this.listTasksDone );
-    
-    this.sortLists();
-    
-    let data = JSON.stringify( this.listTasksDone );
-    try
+    this.listAllTasks.forEach( (task:Task, index) => 
     {
-      window.localStorage.setItem("tasks", data);
-
-      if ( !window.localStorage.getItem("tasks") )
+      if ( task.name == id )
       {
-          throw("local storage not available");
+        this.listAllTasks.splice(index, 1);
       }
-    }
-    catch( exc )
-    {
-      console.log( exc );
-    }
-  }
-  
+    });
 
-  
-  // to add tasks are not done to corresponding list
-  addTo( task: Task )
-  {
-    this.listTasksNotDone.push( task );
-    this.listNotDone$.next( this.listTasksNotDone );
-    
-    this.sortLists();
-    
-    let data = JSON.stringify( this.listTasksNotDone );
-    try
-    {
-      window.localStorage.setItem("tasks", data);
+    this.listAll$.next( this.listAllTasks );
 
-      if ( !window.localStorage.getItem("tasks") )
-      {
-          throw("local storage not available");
-      }
-    }
-    catch( exc )
-    {
-      console.log( exc );
-    }
+    this.saveData();
   }
-  
-  
+
+
 
   // to load tasks
   loadTasks()
@@ -188,6 +123,29 @@ export class DataService
     // });
 
   }
+  
+  
+
+  saveData()
+  {
+    let data = JSON.stringify( this.listAllTasks );
+
+    try
+    {
+      window.localStorage.setItem("tasks", data);
+
+      if ( !window.localStorage.getItem("tasks") )
+      {
+          throw("local storage not available");
+      }
+    }
+    catch( exc )
+    {
+        console.log( exc );
+    }
+  }
+  
+  
 
     
 }

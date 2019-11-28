@@ -21,6 +21,16 @@ const routes: Routes =
       },
 
       {
+        path: 'all-tasks-page',
+        children: [
+          {
+            path:'',
+            loadChildren: () => import('../all-tasks-page/all-tasks-page.module').then( m => m.AllTasksPagePageModule )
+          }
+        ]
+      },
+
+      {
         path: '',
         redirectTo: '/tabs/home-page',
         pathMatch: 'full'

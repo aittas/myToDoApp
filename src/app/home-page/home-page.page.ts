@@ -54,6 +54,8 @@ export class HomePagePage implements OnInit
       dueDate:  new Date(),
       category: this.formGroupTask.get('typedCat').value
     }
+
+    this.dataService.addToListAllTasks(task);
   }
 
 

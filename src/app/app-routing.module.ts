@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'home-page',
     loadChildren: () => import('./home-page/home-page.module').then( m => m.HomePagePageModule)
+  },
+  {
+    path: 'all-tasks-page',
+    loadChildren: () => import('./all-tasks-page/all-tasks-page.module').then( m => m.AllTasksPagePageModule)
   }
   
 ];
