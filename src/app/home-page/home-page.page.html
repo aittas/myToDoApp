@@ -17,7 +17,7 @@
       <ion-list-header>Add New Task</ion-list-header>
 
       <ion-item>
-        <ion-input name="inputTypeTask" placeholder="<please type your task here>"            type="text" formControlName="typedTask"     ></ion-input>
+        <ion-input name="inputTypeTask" placeholder="<please type your task here>"          type="text" formControlName="typedTask"     ></ion-input>
       </ion-item>
       <ion-item>
         <ion-input name="inputTypeTask" placeholder="please type a due date for the task"   type="text" formControlName="typedDueDate"  ></ion-input>
@@ -29,6 +29,8 @@
       <ion-button expand="full" id="ouzo" (click)="buttonAddOnClick()"    [disabled]="!formGroupTask.valid" >ADD        </ion-button>
 
       <ion-button expand="full" id="ouzo" (click)="buttonAlertOnClick()"                                    >Show Alert </ion-button>
+
+      <ion-button><ion-icon name="add"></ion-icon> &nbsp; New Task</ion-button>
 
     </ion-list>
   </form>

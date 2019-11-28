@@ -4,8 +4,7 @@ import  { Validators, FormBuilder, FormGroup }  from '@angular/forms'
 import  { Subscription }                        from 'rxjs';
 import  { DataService }                         from '../data.service';
 import  { Task }                                from '../models/task.interface';
-import { AlertController } from '@ionic/angular';
-import { async } from 'q';
+import  { AlertController }                     from '@ionic/angular';
 
 
 
@@ -27,9 +26,9 @@ export class HomePagePage implements OnInit
 
   constructor
   (
-    private formBuilder: FormBuilder,
-    private dataService: DataService,
-    public alertController: AlertController
+    private formBuilder:      FormBuilder,
+    private dataService:      DataService,
+    private alertController:  AlertController
   ) 
   { }
 
@@ -38,13 +37,11 @@ export class HomePagePage implements OnInit
   ngOnInit() 
   {
     this.formGroupTask = this.formBuilder.group
-    (
-      {
+    ({
         typedTask:    [ '', [ Validators.required, Validators.minLength(1) ] ],
         typedDueDate: [ '', [ Validators.required, Validators.minLength(2) ] ],
         typedCat:     [ '', [ Validators.required, Validators.minLength(3) ] ]
-      }
-    );
+    });
   }
 
 
