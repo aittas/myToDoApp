@@ -12,21 +12,23 @@
 
 <ion-content>
   <form [formGroup]="formGroupTask">
-    <ion-list>
+    <ion-list class="list">
 
-      <ion-label>Add a new task:</ion-label>
+      
+      <ion-label class="label">Add a new task:</ion-label>
+      
 
-      <ion-item>
+      <ion-item class="item">
         <ion-input name="inputTypeTask" placeholder="<please type your task here>"            type="text" formControlName="typedTask"     ></ion-input>
       </ion-item>
-      <ion-item>
+      <ion-item class="item">
         <ion-input name="inputTypeTask" placeholder="<please type a due date for the task>"   type="text" formControlName="typedDueDate"  ></ion-input>
       </ion-item>
-      <ion-item>
+      <ion-item class="item">
         <ion-input name="inputTypeTask" placeholder="<please type a category of your task>"   type="text" formControlName="typedCat"      ></ion-input>
       </ion-item>
 
-      <ion-button (click)="buttonAddOnClick()" [disabled]="!formGroupTask.valid"> ADD &nbsp; <ion-icon name="add"></ion-icon> </ion-button>
+      <ion-button class="button" (click)="buttonAddOnClick()" [disabled]="!formGroupTask.valid"> ADD &nbsp; <ion-icon name="add"></ion-icon> </ion-button>
 
       <!-- <ion-button (click)="buttonAlertOnClick()">Show Alert</ion-button> -->
 

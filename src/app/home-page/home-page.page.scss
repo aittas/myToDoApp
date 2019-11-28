@@ -1,4 +1,28 @@
-#ouzo{
-      color: lightgrey;
-      background-color: green;
-  }
+
+.list
+{
+    max-width: 75%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.label
+{
+    color: darkslategray;
+}
+
+.item
+{
+    margin-top: 20px;
+    text-align: center;
+    color: grey;
+}
+
+.button
+{
+    background-color: yellow;
+    color: white;
+    width: 15%;
+    margin-top: 25px;
+}
