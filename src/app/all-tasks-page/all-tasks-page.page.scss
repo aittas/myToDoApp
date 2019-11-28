@@ -1,5 +1,43 @@
-.div
+
+.list-headers
 {
-    background-color: green;
-    color: hotpink;
+    width: 100%;
+    text-align: center;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.col-odd-headers
+{
+    background-color: lightgrey;
+}
+
+.col-even-headers
+{
+    background-color: gray;
+}
+
+
+
+.list
+{
+    width: 100%;
+    text-align: center;
+}
+
+.col-odd
+{
+    background-color: yellow;
+    
+}
+
+.col-even
+{
+    background-color: blue;
+}
+
+.row-buttons
+{
+    background-color: brown;
+    justify-content: center;
 }
