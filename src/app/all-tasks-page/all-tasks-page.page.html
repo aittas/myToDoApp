@@ -11,59 +11,56 @@
 <ion-content>
   <ion-list>
 
-    
     <ion-item>
       <ion-list class="list-headers">
-        <ion-row class="row">
+        <ion-row>
 
-          <ion-col class="col-odd-headers">
-            <ion-label>name</ion-label>
+          <ion-col>
+            <ion-label>Task</ion-label>
           </ion-col>
 
-          <ion-col class="col-even-headers">
-            <ion-label>dueDate</ion-label>
+          <ion-col>
+            <ion-label>Due Date</ion-label>
           </ion-col>
 
-          <ion-col class="col-odd-headers">
-            <ion-label>category</ion-label>
+          <ion-col>
+            <ion-label>Category</ion-label>
           </ion-col>
 
-          <ion-col class="col-even-headers">
-            <ion-label>completed/delete</ion-label>
+          <ion-col class="column-buttons">
+            <ion-label>Completed / Delete</ion-label>
           </ion-col>
 
         </ion-row>
       </ion-list>
     </ion-item>
 
-
     <ion-item *ngFor="let item of allTasks"> 
-      <ion-list class="list">
-        <ion-row class="row">
+      <ion-list class="list-items">
+        <ion-row>
 
-          <ion-col class="col-odd">
+          <ion-col>
             <ion-label>{{item.name}}</ion-label>
           </ion-col>
 
-          <ion-col class="col-even">
+          <ion-col>
             <ion-label>{{item.dueDate}}</ion-label>
           </ion-col>
 
-          <ion-col class="col-odd">
+          <ion-col>
             <ion-label>{{item.category}}</ion-label>
           </ion-col>
 
-          <ion-col class="col-even">
-            <ion-row class="row-buttons">
-                <ion-button   (click)="buttonDoneOnClick(item.name)">     <ion-icon name="checkmark"></ion-icon>  </ion-button>
-                <ion-button   (click)="buttonDeleteOnClick(item.name)">   <ion-icon name="close"></ion-icon>      </ion-button>
+          <ion-col>
+            <ion-row class="column-buttons">
+                <ion-button   (click)="buttonDoneOnClick(item.name)">     <ion-icon name="checkbox-outline"></ion-icon>  </ion-button>
+                <ion-button   (click)="buttonDeleteOnClick(item.name)">   <ion-icon name="trash"></ion-icon>             </ion-button>
             </ion-row>
           </ion-col>
 
         </ion-row>
       </ion-list>
     </ion-item>
-
 
   </ion-list>
 </ion-content>

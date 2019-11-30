@@ -1,28 +1,46 @@
-
-.list
-{
-    max-width: 75%;
+.list {
+    width: 75%;
     margin: 0 auto;
-    text-align: center;
-    padding-top: 20px;
-}
-
-.label
-{
-    color: darkslategray;
-}
-
-.item
-{
     margin-top: 20px;
-    text-align: center;
-    color: grey;
+    text-align: left;
+    border: solid black 2px;
+    background-color: gainsboro;
 }
 
-.button
-{
-    background-color: yellow;
-    color: white;
-    width: 15%;
-    margin-top: 25px;
+
+
+.row-label {
+    margin-bottom: 20px;
+}
+.col-label {
+    background-color: cornflowerblue;
+}
+.label {
+    padding-left: 10px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+
+
+.row-input {
+    margin: 10px;
+}
+.col-input {
+    padding: 0px;
+}
+.input {
+    border: 1px dashed cornflowerblue;
+}
+
+
+
+.row-button {
+    margin-left: 10px;
+}
+.col-button {
+    padding: 0px;
+}
+.button {
+    font-weight: bold;
 }

@@ -2,42 +2,23 @@
 .list-headers
 {
     width: 100%;
-    text-align: center;
-    color: whitesmoke;
+    text-align: left;
+    color: black;
     font-weight: bold;
+    font-style: italic;
+    background-color: cornflowerblue;
 }
 
-.col-odd-headers
-{
-    background-color: lightgrey;
-}
-
-.col-even-headers
-{
-    background-color: gray;
-}
-
-
-
-.list
+.list-items
 {
     width: 100%;
-    text-align: center;
+    text-align: left;
+    background-color: gainsboro;
+    border-bottom: 1px dashed cornflowerblue;
 }
 
-.col-odd
+.column-buttons
 {
-    background-color: yellow;
-    
-}
-
-.col-even
-{
-    background-color: blue;
-}
-
-.row-buttons
-{
-    background-color: brown;
     justify-content: center;
+    text-align: center;
 }

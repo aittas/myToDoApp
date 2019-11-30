@@ -14,24 +14,44 @@
   <form [formGroup]="formGroupTask">
     <ion-list class="list">
 
-      
-      <ion-label class="label">Add a new task:</ion-label>
-      
+      <ion-row class="row-label">   
+        <ion-col class="col-label">   
+          <ion-label class="label">Please enter your new task below:</ion-label>   
+        </ion-col>
+      </ion-row>
 
-      <ion-item class="item">
-        <ion-input name="inputTypeTask" placeholder="<please type your task here>"            type="text" formControlName="typedTask"     ></ion-input>
-      </ion-item>
-      <ion-item class="item">
-        <ion-input name="inputTypeTask" placeholder="<please type a due date for the task>"   type="text" formControlName="typedDueDate"  ></ion-input>
-      </ion-item>
-      <ion-item class="item">
-        <ion-input name="inputTypeTask" placeholder="<please type a category of your task>"   type="text" formControlName="typedCat"      ></ion-input>
-      </ion-item>
 
-      <ion-button class="button" (click)="buttonAddOnClick()" [disabled]="!formGroupTask.valid"> ADD &nbsp; <ion-icon name="add"></ion-icon> </ion-button>
+      <ion-row class="row-input">   
+        <ion-col class="col-input">   
+          <ion-input class="input" placeholder="<please type your task name here>" type="text" formControlName="typedTask"></ion-input>   
+        </ion-col>
+      </ion-row>
 
-      <!-- <ion-button (click)="buttonAlertOnClick()">Show Alert</ion-button> -->
+      <ion-row class="row-input">   
+        <ion-col class="col-input">   
+          <ion-input class="input" placeholder="<please type a due date for your task>" type="date" formControlName="typedDueDate"></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="row-input">   
+        <ion-col class="col-input">  
+           <ion-input class="input" placeholder="<please type a category of your task>" type="text" formControlName="typedCat"></ion-input>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row class="row-button">  
+        <ion-col class="col-button">  
+          <ion-button class="button" (click)="buttonAddOnClick()" [disabled]="!formGroupTask.valid">ADD &nbsp; <ion-icon name="add"></ion-icon></ion-button>  
+        </ion-col>
+      </ion-row>
 
     </ion-list>
+    <!-- <ion-button (click)="buttonAlertOnClick()">Show Alert</ion-button> -->
   </form>
 </ion-content>
+
+ 
+    
+  
+ 

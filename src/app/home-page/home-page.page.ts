@@ -1,7 +1,6 @@
 
 import  { Component, OnInit }                   from '@angular/core';
 import  { Validators, FormBuilder, FormGroup }  from '@angular/forms'
-import  { Subscription }                        from 'rxjs';
 import  { DataService }                         from '../data.service';
 import  { Task }                                from '../models/task.interface';
 import  { AlertController }                     from '@ionic/angular';
@@ -38,24 +37,27 @@ export class HomePagePage implements OnInit
   {
     this.formGroupTask = this.formBuilder.group
     ({
-        typedTask:    [ '', [ Validators.required, Validators.minLength(1) ] ],
+        typedTask:    [ '', [ Validators.required, Validators.minLength(2) ] ],
         typedDueDate: [ '', [ Validators.required, Validators.minLength(2) ] ],
-        typedCat:     [ '', [ Validators.required, Validators.minLength(3) ] ]
+        typedCat:     [ '', [ Validators.required, Validators.minLength(2) ] ]
     });
   }
 
 
 
-  buttonAddOnClick()
+  async buttonAddOnClick()
   {
     let task: Task =
     {
       name:     this.formGroupTask.get('typedTask').value,
-      dueDate:  new Date(),
+      dueDate:  this.formGroupTask.get('typedDueDate').value, //new Date(),
       category: this.formGroupTask.get('typedCat').value
     }
 
     this.dataService.addToListAllTasks(task);
+
+    const alert = this.alertController.create( { subHeader:"Task added to list successfully!", buttons:['OK'] } );
+    (await alert).present();
   }
 
 
