@@ -29,11 +29,12 @@ export class AllTasksPagePage implements OnInit
   ngOnInit() 
   {
     this.allTasksSub  = this.dataService.listAll$.subscribe(  taskData => this.allTasks  = taskData );
+    this.dataService.loadAllTasks();
   }
 
-  buttonDoneOnClick(itemName)
+  buttonCompletedOnClick(item, itemName)
   {
-    //this.dataService.deleteFromAllTasks(itemName);
+    this.dataService.completeTask( item, itemName )
   }
 
   buttonDeleteOnClick(itemName)

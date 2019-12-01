@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'all-tasks-page',
     loadChildren: () => import('./all-tasks-page/all-tasks-page.module').then( m => m.AllTasksPagePageModule)
+  },
+  {
+    path: 'completed-tasks-page',
+    loadChildren: () => import('./completed-tasks-page/completed-tasks-page.module').then( m => m.CompletedTasksPagePageModule)
   }
   
 ];

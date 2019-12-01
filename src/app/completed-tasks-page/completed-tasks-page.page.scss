@@ -1,0 +1,24 @@
+
+.list-headers
+{
+    width: 100%;
+    text-align: left;
+    color: black;
+    font-weight: bold;
+    font-style: italic;
+    background-color: cornflowerblue;
+}
+
+.list-items
+{
+    width: 100%;
+    text-align: left;
+    background-color: gainsboro;
+    border-bottom: 1px dashed cornflowerblue;
+}
+
+.column-button
+{
+    justify-content: center;
+    text-align: center;
+}

@@ -19,9 +19,6 @@ import  { AlertController }                     from '@ionic/angular';
 export class HomePagePage implements OnInit 
 {
   formGroupTask:  FormGroup;
-  dateStr:        string;
-
-
 
   constructor
   (
@@ -30,8 +27,6 @@ export class HomePagePage implements OnInit
     private alertController:  AlertController
   ) 
   { }
-
-
 
   ngOnInit() 
   {
@@ -42,8 +37,6 @@ export class HomePagePage implements OnInit
         typedCat:     [ '', [ Validators.required, Validators.minLength(2) ] ]
     });
   }
-
-
 
   async buttonAddOnClick()
   {
