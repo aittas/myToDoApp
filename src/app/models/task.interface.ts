@@ -1,6 +1,8 @@
 export interface Task
 {
     name:       string;
-    dueDate:    Date;
+    dueDate:    string;
     category:   string;
+
+    dateCreated: number; //for sorting
 }

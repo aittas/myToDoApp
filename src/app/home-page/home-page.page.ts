@@ -43,8 +43,10 @@ export class HomePagePage implements OnInit
     let task: Task =
     {
       name:     this.formGroupTask.get('typedTask').value,
-      dueDate:  this.formGroupTask.get('typedDueDate').value, //new Date(),
-      category: this.formGroupTask.get('typedCat').value
+      dueDate:  this.formGroupTask.get('typedDueDate').value, 
+      category: this.formGroupTask.get('typedCat').value,
+      
+      dateCreated: new Date().getTime()
     }
 
     this.dataService.addToListAllTasks(task);

@@ -42,13 +42,11 @@ export class DataService
         this.listAllTasks.push(item);
       });
 
-      this.sortLists();
+      this.sortLists(this.listAllTasks);
       
       this.listAll$.next( this.listAllTasks );
     });
   }
-
-
 
   // to load  completed  tasks
   loadCompletedTasks()
@@ -60,11 +58,13 @@ export class DataService
         this.listCompletedTasks.push(item);
       });
 
-      this.sortLists();
+      this.sortLists(this.listCompletedTasks);
 
       this.listCompleted$.next( this.listCompletedTasks );
     });
   }
+
+
 
 
 
@@ -74,12 +74,10 @@ export class DataService
     this.listAllTasks.push( task );
     this.listAll$.next( this.listAllTasks );
     
-    this.sortLists();
+    this.sortLists(this.listAllTasks);
     
     this.saveTasks( this.listAllTasks, this.localStotageKeyNameForAllTAsks );
   }
-
-
 
   // to add a completed task to  'listCompletedTasks'  list
   addToListCompletedTasks( task: Task )
@@ -87,10 +85,12 @@ export class DataService
     this.listCompletedTasks.push( task );
     this.listCompleted$.next( this.listCompletedTasks );
     
-    this.sortLists();
+    this.sortLists(this.listCompletedTasks);
     
     this.saveTasks( this.listCompletedTasks, this.localStotageKeyNameForCompletedTAsks );
   }
+
+
 
 
 
@@ -112,6 +112,8 @@ export class DataService
 
 
 
+
+
   // for completed tasks
   completeTask( task:Task, taskName:string )
   {
@@ -121,8 +123,6 @@ export class DataService
     // add to completed tasks list
     this.addToListCompletedTasks( task )
   }
-
-
 
   // delete from  'completed tasks'  list
   deleteFromCompletedTasks( taskName:string )
@@ -142,27 +142,16 @@ export class DataService
 
 
 
-  // to sort a list
-  sortLists()
+
+
+  // generic to sort a list
+  sortLists( taskList:Task[] )
   {
-
-    // this.listAllTasks.sort( (task1:Task, task2:Task) => 
-    // {
-    //   return task2.stop - task1.stop;
-    // });
-
-    // this.listTasksDone.sort( (task1:Task, task2:Task) => 
-    // {
-    //   return task2.stop - task1.stop;
-    // });
-
-    // this.listTasksNotDone.sort( (task1:Task, task2:Task) => 
-    // {
-    //   return task2.stop - task1.stop;
-    // });
-
+    taskList.sort( (task1:Task, task2:Task) =>
+    {
+      return task2.dateCreated - task1.dateCreated;
+    } );
   }
-  
   
 
   // generic to load tasks
@@ -185,7 +174,6 @@ export class DataService
   }
 
 
-
   // generic to save tasks
   saveTasks( taskList:Task[], localStotageKeyName:string )
   {
@@ -205,4 +193,5 @@ export class DataService
         console.log( exc );
     }
   }
+
 }
