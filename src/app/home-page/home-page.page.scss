@@ -2,7 +2,6 @@
     width: 75%;
     margin: 0 auto;
     margin-top: 20px;
-    text-align: left;
     border: solid black 2px;
     background-color: gainsboro;
 }
@@ -10,13 +9,14 @@
 
 
 .row-label {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    text-align: left;
 }
 .col-label {
     background-color: cornflowerblue;
 }
 .label {
-    padding-left: 10px;
+    padding-left: 5px;
     font-weight: bold;
     font-style: italic;
 }
@@ -25,18 +25,41 @@
 
 .row-input {
     margin: 10px;
+    text-align: center;
 }
 .col-input {
     padding: 0px;
 }
 .input {
     border: 1px dashed cornflowerblue;
+    --placeholder-color: gray;
+    --placeholder-opacity: 0.5;
+}
+
+
+
+.row-date {
+    margin: 10px;
+    border: 1px dashed cornflowerblue;
+    text-align: center;
+}
+.label-date {
+    color: gray;
+    opacity: 0.5;
+}
+#datePicker {
+    margin-top: 5px;
+    text-decoration: underline;
+    background-color: lightgrey;
+    width: 100%; 
+    text-align: center;
 }
 
 
 
 .row-button {
-    margin-left: 10px;
+    margin: 5px;
+    text-align: center;
 }
 .col-button {
     padding: 0px;

@@ -2,7 +2,7 @@
 <ion-header>
   <ion-toolbar>
 
-    <ion-title>Your Completed Tasks</ion-title>
+    <ion-title>Completed Tasks</ion-title>
 
   </ion-toolbar>
 </ion-header>
@@ -15,20 +15,16 @@
       <ion-list class="list-headers">
         <ion-row>
 
-          <ion-col>
+          <ion-col class="col-task">
             <ion-label>Task</ion-label>
           </ion-col>
 
-          <ion-col>
+          <ion-col class="col-date">
             <ion-label>Due To</ion-label>
           </ion-col>
 
-          <ion-col>
-            <ion-label>Category</ion-label>
-          </ion-col>
-
-          <ion-col class="column-button">
-            <ion-label>Delete Forever</ion-label>
+          <ion-col class="col-button">
+            <ion-label>Delete</ion-label>
           </ion-col>
 
         </ion-row>
@@ -39,19 +35,15 @@
       <ion-list class="list-items">
         <ion-row>
 
-          <ion-col>
-            <ion-label>{{item.name}}</ion-label>
+          <ion-col class="col-task">
+            <ion-label class="label-task">{{item.name}}</ion-label>
           </ion-col>
 
-          <ion-col>
-            <ion-label>{{item.dueDate}}</ion-label>
+          <ion-col class="col-date">
+            <ion-label>{{item.dueDate | date: 'dd/MM/yy'}}</ion-label>
           </ion-col>
 
-          <ion-col>
-            <ion-label>{{item.category}}</ion-label>
-          </ion-col>
-
-          <ion-col class="column-button">
+          <ion-col class="col-button">
             <ion-button color="danger" (click)="buttonDeleteOnClick(item.name)"> <ion-icon name="trash"></ion-icon> </ion-button>
           </ion-col>
 

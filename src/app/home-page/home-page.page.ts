@@ -19,6 +19,7 @@ import  { AlertController }                     from '@ionic/angular';
 export class HomePagePage implements OnInit 
 {
   formGroupTask:  FormGroup;
+  today: Date;
 
   constructor
   (
@@ -30,11 +31,11 @@ export class HomePagePage implements OnInit
 
   ngOnInit() 
   {
+    this.today =  new Date();
+
     this.formGroupTask = this.formBuilder.group
     ({
         typedTask:    [ '', [ Validators.required, Validators.minLength(2) ] ],
-        typedDueDate: [ '', [ Validators.required, Validators.minLength(2) ] ],
-        typedCat:     [ '', [ Validators.required, Validators.minLength(2) ] ]
     });
   }
 
@@ -43,17 +44,22 @@ export class HomePagePage implements OnInit
     let task: Task =
     {
       name:     this.formGroupTask.get('typedTask').value,
-      dueDate:  this.formGroupTask.get('typedDueDate').value, 
-      category: this.formGroupTask.get('typedCat').value,
-      
-      dateCreated: new Date().getTime()
+      dueDate:  (document.getElementById('datePicker') as any).value
     }
 
     this.dataService.addToListAllTasks(task);
 
-    const alert = this.alertController.create( { subHeader:"Task added to list successfully!", buttons:['OK'] } );
+    const alert = this.alertController.create( { subHeader:"Task added to your \"Task List\"", buttons:['OK'] } );
     (await alert).present();
   }
+
+  currDate()
+  {
+    return this.today.toISOString();
+  }
+
+ 
+
 
 
 

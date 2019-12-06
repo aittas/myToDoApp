@@ -20,8 +20,11 @@ export class DataService
   listAll$        = new BehaviorSubject<Task[]>(this.listAllTasks);
   listCompleted$  = new BehaviorSubject<Task[]>(this.listCompletedTasks);
 
-  localStotageKeyNameForAllTAsks:         string
-  localStotageKeyNameForCompletedTAsks:   string
+  localStotageKeyNameForAllTAsks:         string;
+  localStotageKeyNameForCompletedTAsks:   string;
+
+  no1: number;
+  no2: number;
 
   constructor ( ) 
   {
@@ -34,7 +37,6 @@ export class DataService
   // to load  all  tasks
   loadAllTasks()
   {
-    
     this.loadTasks( this.localStotageKeyNameForAllTAsks ).then( (data:Array<Task>) => 
     {
       data.forEach( (item) =>
@@ -42,7 +44,7 @@ export class DataService
         this.listAllTasks.push(item);
       });
 
-      this.sortLists(this.listAllTasks);
+      this.sortLists(this.listAllTasks, true);
       
       this.listAll$.next( this.listAllTasks );
     });
@@ -58,7 +60,7 @@ export class DataService
         this.listCompletedTasks.push(item);
       });
 
-      this.sortLists(this.listCompletedTasks);
+      this.sortLists(this.listCompletedTasks, false);
 
       this.listCompleted$.next( this.listCompletedTasks );
     });
@@ -74,7 +76,7 @@ export class DataService
     this.listAllTasks.push( task );
     this.listAll$.next( this.listAllTasks );
     
-    this.sortLists(this.listAllTasks);
+    this.sortLists(this.listAllTasks, true);
     
     this.saveTasks( this.listAllTasks, this.localStotageKeyNameForAllTAsks );
   }
@@ -85,7 +87,7 @@ export class DataService
     this.listCompletedTasks.push( task );
     this.listCompleted$.next( this.listCompletedTasks );
     
-    this.sortLists(this.listCompletedTasks);
+    this.sortLists(this.listCompletedTasks, false);
     
     this.saveTasks( this.listCompletedTasks, this.localStotageKeyNameForCompletedTAsks );
   }
@@ -145,11 +147,21 @@ export class DataService
 
 
   // generic to sort a list
-  sortLists( taskList:Task[] )
+  sortLists( taskList:Task[], ascOrder:boolean)
   {
-    taskList.sort( (task1:Task, task2:Task) =>
+    taskList.sort( function( a, b ) 
     {
-      return task2.dateCreated - task1.dateCreated;
+      var dateA = new Date(a.dueDate), dateB = new Date(b.dueDate);
+
+      if (ascOrder==true)
+      {
+        return dateA.getTime() - dateB.getTime();
+      }
+      else
+      {
+        return dateB.getTime() - dateA.getTime();
+      }
+    
     } );
   }
   

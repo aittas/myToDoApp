@@ -23,19 +23,24 @@
 
       <ion-row class="row-input">   
         <ion-col class="col-input">   
-          <ion-input class="input" placeholder="<task name>" type="text" formControlName="typedTask"></ion-input>   
+          <ion-textarea class="input" placeholder="<task name>" type="text" formControlName="typedTask"></ion-textarea>   
         </ion-col>
       </ion-row>
 
-      <ion-row class="row-input">   
-        <ion-col class="col-input">   
-          <ion-input class="input" placeholder="<due to>" type="text" formControlName="typedDueDate"></ion-input>
-        </ion-col>
-      </ion-row>
 
-      <ion-row class="row-input">   
-        <ion-col class="col-input">  
-           <ion-input class="input" placeholder="<category>" type="text" formControlName="typedCat"></ion-input>
+      <ion-row class="row-date">
+        <ion-col class="col-date">
+          <ion-label class="label-date">Click to select due date:</ion-label>
+          <ion-datetime
+            id              = "datePicker"
+            value           = "{{ currDate() }}"
+            min             = "{{ currDate() }}"
+            max             = "2999-12-12"
+            pickerFormat    = "YYYY MMM DD"
+            displayFormat   = "DDD, DD-MMM-YYYY"
+            monthShortNames = "Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
+            >
+          </ion-datetime>
         </ion-col>
       </ion-row>
 
@@ -46,8 +51,8 @@
         </ion-col>
       </ion-row>
 
+
     </ion-list>
-    <!-- <ion-button (click)="buttonAlertOnClick()">Show Alert</ion-button> -->
   </form>
 </ion-content>
 

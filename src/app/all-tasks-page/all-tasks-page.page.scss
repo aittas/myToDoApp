@@ -1,24 +1,44 @@
 
 .list-headers
 {
+    margin: 0px;
     width: 100%;
     text-align: left;
-    color: black;
+    background-color: cornflowerblue;
     font-weight: bold;
     font-style: italic;
-    background-color: cornflowerblue;
 }
 
 .list-items
 {
+    margin: 0px;
+    margin-bottom: 5px;
     width: 100%;
     text-align: left;
     background-color: gainsboro;
     border-bottom: 1px dashed cornflowerblue;
 }
 
-.column-buttons
-{
+
+
+.col-task{
+    min-width: 39%;
+}
+.col-date{
+    min-width: 25%;
+    text-align: center;
+}
+.col-buttons{
+    min-width: 35%;
+    text-align: center;
+}
+
+
+
+.label-task{
+    white-space: pre-wrap;
+}
+.row-buttons{
     justify-content: center;
     text-align: center;
 }
